@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function DUTemplate({ student, collegeName }: { student: any, collegeName?: string }) {
+export default function DUTemplate({ student }: { student?: Record<string, string> }) {
   return (
     <div className="w-full h-full relative overflow-hidden rounded-2xl bg-white shadow-lg font-sans flex border-2 border-gray-200">
       

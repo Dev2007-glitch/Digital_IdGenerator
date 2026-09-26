@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function VVITTemplate({ student, collegeName }: { student: any, collegeName?: string }) {
+export default function VVITTemplate({ student }: { student?: Record<string, string> }) {
   return (
     <div className="w-full h-full relative overflow-hidden rounded-2xl bg-white shadow-lg font-sans border-2 border-gray-200">
       

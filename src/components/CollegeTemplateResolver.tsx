@@ -4,16 +4,16 @@ import VITTemplate from './templates/VITTemplate';
 import VVITTemplate from './templates/VVITTemplate';
 import VignanTemplate from './templates/VignanTemplate';
 
-export default function CollegeTemplateResolver({ collegeId, collegeName, student }: { collegeId: string, collegeName?: string, student?: any }) {
+export default function CollegeTemplateResolver({ collegeId, student }: { collegeId: string, student?: Record<string, string> }) {
   switch (collegeId) {
     case 'delhi':
-      return <DUTemplate student={student} collegeName={collegeName} />;
+      return <DUTemplate student={student} />;
     case 'vit':
-      return <VITTemplate student={student} collegeName={collegeName} />;
+      return <VITTemplate student={student} />;
     case 'vvit':
-      return <VVITTemplate student={student} collegeName={collegeName} />;
+      return <VVITTemplate student={student} />;
     case 'vignan':
     default:
-      return <VignanTemplate student={student} collegeName={collegeName} />;
+      return <VignanTemplate student={student} />;
   }
 }

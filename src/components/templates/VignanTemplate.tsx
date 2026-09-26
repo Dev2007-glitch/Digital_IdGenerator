@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function VignanTemplate({ student, collegeName }: { student: any, collegeName?: string }) {
+export default function VignanTemplate({ student }: { student?: Record<string, string> }) {
   return (
     <div className="w-full h-full relative overflow-hidden rounded-2xl bg-[#f8f9fa] shadow-lg font-sans border border-gray-300">
       

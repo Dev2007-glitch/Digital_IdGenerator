@@ -2,8 +2,8 @@
 
 import { useState, useRef } from "react";
 import {
-  Fingerprint, Upload, Download, ArrowLeft, RefreshCw, QrCode, FileText, CheckCircle,
-  ShieldCheck, HelpCircle, LogOut, ChevronRight, User, Settings2
+  Upload, Download, ArrowLeft, RefreshCw, QrCode, FileText, CheckCircle,
+  ShieldCheck, HelpCircle, LogOut, ChevronRight, Settings2
 } from "lucide-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -128,14 +128,14 @@ export default function GenerateDashboard() {
       pdf.addImage(imgData, 'PNG', x, y, cardWidth, cardHeight);
       pdf.save(`${formData.name.replace(/\s+/g, '-') || "Student"}-Digital-ID.pdf`);
       showToast("ID Card downloaded successfully.");
-    } catch (error) {
+    } catch {
       showToast("Error generating PDF.");
     } finally {
       setIsDownloading(false);
     }
   };
 
-  const handleDownloadPNG = async () => {
+  const _handleDownloadPNG = async () => {
     setIsDownloading(true);
     showToast("Preparing Image...");
     try {
@@ -148,7 +148,7 @@ export default function GenerateDashboard() {
       link.click();
 
       showToast("ID Card downloaded successfully.");
-    } catch (error) {
+    } catch {
       showToast("Error generating PNG.");
     } finally {
       setIsDownloading(false);
@@ -534,7 +534,7 @@ export default function GenerateDashboard() {
                         {!isFlipped ? (
                           /* FRONT */
                           <div className="w-full h-full relative z-10 bg-transparent rounded-2xl shadow-inner overflow-hidden">
-                            <CollegeTemplateResolver collegeId={selectedCollege.id} collegeName={displayCollegeName} student={formData} />
+                            <CollegeTemplateResolver collegeId={selectedCollege.id} student={formData as Record<string, string>} />
                           </div>
                         ) : (
                           /* BACK FACE */
