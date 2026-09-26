@@ -135,26 +135,6 @@ export default function GenerateDashboard() {
     }
   };
 
-  const _handleDownloadPNG = async () => {
-    setIsDownloading(true);
-    showToast("Preparing Image...");
-    try {
-      const imgData = await captureCard(3);
-      if (!imgData) throw new Error("Capture failed");
-
-      const link = document.createElement('a');
-      link.href = imgData;
-      link.download = `${formData.name.replace(/\s+/g, '-') || "Student"}-Digital-ID.png`;
-      link.click();
-
-      showToast("ID Card downloaded successfully.");
-    } catch {
-      showToast("Error generating PNG.");
-    } finally {
-      setIsDownloading(false);
-    }
-  };
-
   return (
     <div className="flex h-screen bg-[#050505] text-white overflow-hidden selection:bg-white selection:text-black">
 
